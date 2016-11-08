@@ -18,32 +18,32 @@ function fetchAndDisplayGif(event) {
     // This prevents the form submission from doing what it normally does: send a request (which would cause our page to refresh).
     // Because we will be making our own AJAX request, we dont need to send a normal request and we definitely don't want the page to refresh.
     event.preventDefault();
-  
-    
-    
+
+
+
     var $captcha = $('#captcha').val();
-  
+
     //errorResponse();
-  
+
     if ($captcha != "5") {
-      $('#gif').attr("hidden", false);
-      var $feedback = $('#feedback');
-      //clear text
-      $feedback.text("");
-      //clear gif
-      $('#gif').attr("hidden", true);
-      //add error text
-      $feedback.append("No gifs for you.");
-      //reveal error text
-      $feedback.attr("hidden", false);
-      //make feedback text color red
-      $('#feedback').css("color", "red");
-      //add red to input border
-      $('#captcha').css("border-color", "red");
-      
-      return;
+        $('#gif').attr("hidden", false);
+        var $feedback = $('#feedback');
+        //clear text
+        $feedback.text("");
+        //clear gif
+        $('#gif').attr("hidden", true);
+        //add error text
+        $feedback.append("No gifs for you.");
+        //reveal error text
+        $feedback.attr("hidden", false);
+        //make feedback text color red
+        $('#feedback').css("color", "red");
+        //add red to input border
+        $('#captcha').css("border-color", "red");
+
+        return;
     }
-    
+
 
     // get the user's input text from the DOM
     var searchQuery = $('input').val(); // TODO should be e.g. "dance"
@@ -72,7 +72,7 @@ function fetchAndDisplayGif(event) {
             // 2. hide the feedback message and display the image
             $('#feedback').attr("hidden", true);
             $('#gif').attr("hidden", false);
-          
+
             //3. return border color to normal if there was a previous error
             $('#captcha').css("border-color", "");
         },
